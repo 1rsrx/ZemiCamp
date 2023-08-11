@@ -17,6 +17,8 @@
 		112EA5B62A861CF500D43045 /* ImageLoadViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 112EA5B52A861CF500D43045 /* ImageLoadViewController.storyboard */; };
 		11ED5BB42A861FEC00F59926 /* JsonLoadViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11ED5BB32A861FEC00F59926 /* JsonLoadViewController.storyboard */; };
 		11ED5BB62A861FF800F59926 /* JsonLoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED5BB52A861FF800F59926 /* JsonLoadViewController.swift */; };
+		11ED5BB92A8667C800F59926 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED5BB82A8667C800F59926 /* ImageLoader.swift */; };
+		11ED5BBC2A86682C00F59926 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ED5BBB2A86682C00F59926 /* ApiError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		112EA5B52A861CF500D43045 /* ImageLoadViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageLoadViewController.storyboard; sourceTree = "<group>"; };
 		11ED5BB32A861FEC00F59926 /* JsonLoadViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JsonLoadViewController.storyboard; sourceTree = "<group>"; };
 		11ED5BB52A861FF800F59926 /* JsonLoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonLoadViewController.swift; sourceTree = "<group>"; };
+		11ED5BB82A8667C800F59926 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		11ED5BBB2A86682C00F59926 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +70,10 @@
 			children = (
 				112EA59E2A86164000D43045 /* AppDelegate.swift */,
 				112EA5A02A86164000D43045 /* SceneDelegate.swift */,
+				11ED5BBA2A86681A00F59926 /* Entity */,
 				112EA5B42A861CE000D43045 /* View */,
 				112EA5B72A861D0300D43045 /* Controller */,
+				11ED5BB72A8667BB00F59926 /* Api */,
 				112EA5A72A86164100D43045 /* Assets.xcassets */,
 				112EA5A92A86164100D43045 /* LaunchScreen.storyboard */,
 				112EA5AC2A86164100D43045 /* Info.plist */,
@@ -93,6 +99,22 @@
 				11ED5BB52A861FF800F59926 /* JsonLoadViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		11ED5BB72A8667BB00F59926 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				11ED5BB82A8667C800F59926 /* ImageLoader.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		11ED5BBA2A86681A00F59926 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				11ED5BBB2A86682C00F59926 /* ApiError.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,8 +190,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11ED5BBC2A86682C00F59926 /* ApiError.swift in Sources */,
 				11ED5BB62A861FF800F59926 /* JsonLoadViewController.swift in Sources */,
 				112EA5A32A86164000D43045 /* RouterViewController.swift in Sources */,
+				11ED5BB92A8667C800F59926 /* ImageLoader.swift in Sources */,
 				112EA59F2A86164000D43045 /* AppDelegate.swift in Sources */,
 				112EA5B32A861CD300D43045 /* ImageLoadViewController.swift in Sources */,
 				112EA5A12A86164000D43045 /* SceneDelegate.swift in Sources */,

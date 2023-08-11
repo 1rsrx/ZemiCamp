@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XfJ-EB-HUu">
-                                <rect key="frame" x="76.666666666666686" y="201" width="240" height="128"/>
+                                <rect key="frame" x="136.66666666666666" y="201" width="119.99999999999997" height="120"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Gam-Ar-agT"/>
-                                    <constraint firstAttribute="height" constant="128" id="yaZ-S0-VkY"/>
+                                    <constraint firstAttribute="width" constant="120" id="Gam-Ar-agT"/>
+                                    <constraint firstAttribute="height" constant="120" id="yaZ-S0-VkY"/>
                                 </constraints>
                             </imageView>
                         </subviews>
