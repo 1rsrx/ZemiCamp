@@ -7,19 +7,36 @@
 
 import UIKit
 
+struct NextViewControllerInfo {
+    var title: String
+    var viewController: UIViewController
+}
+
 class RouterViewController: UIViewController {
     
     @IBOutlet weak var routerTableView: UITableView!
     
-    private let titles = ["画像取得","JSON取得"]
+    private var controllers: [NextViewControllerInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUp()
+        setUpControllers()
+        setUpView()
+    }
+    
+    private func setUpControllers() {
+        let imageLoadViewController = UIStoryboard(name: "ImageLoadViewController", bundle: nil).instantiateInitialViewController()!
+        let jsonLoadViewController = UIStoryboard(name: "JsonLoadViewController", bundle: nil).instantiateInitialViewController()!
+        
+        
+        controllers = [
+            NextViewControllerInfo(title: "画像", viewController: imageLoadViewController),
+            NextViewControllerInfo(title: "JSON", viewController: jsonLoadViewController)
+        ]
     }
 
-    private func setUp() {
+    private func setUpView() {
         routerTableView.dataSource = self
         routerTableView.delegate = self
         routerTableView.register(UITableViewCell.self, forCellReuseIdentifier: "routerTableViewCell")
@@ -28,14 +45,14 @@ class RouterViewController: UIViewController {
 
 extension RouterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titles.count
+        return controllers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "routerTableViewCell", for: indexPath)
         
         var config = cell.defaultContentConfiguration()
-        config.text = titles[indexPath.row]
+        config.text = controllers[indexPath.row].title
         cell.contentConfiguration = config
         
         return cell
@@ -45,5 +62,8 @@ extension RouterViewController: UITableViewDataSource {
 extension RouterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let controller = controllers[indexPath.row].viewController
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
