@@ -46,7 +46,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="XfJ-EB-HUu" id="WEy-Zg-5gM"/>
-                        <outlet property="urlTextFIeld" destination="TND-Tt-bLL" id="CRw-wv-hxh"/>
+                        <outlet property="urlTextField" destination="TND-Tt-bLL" id="tcK-iX-Wj3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

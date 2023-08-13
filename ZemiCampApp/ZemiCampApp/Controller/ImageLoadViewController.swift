@@ -9,7 +9,7 @@ import UIKit
 
 class ImageLoadViewController: UIViewController {
     
-    @IBOutlet weak var urlTextFIeld: UITextField!
+    @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     
     private let imageLoader = ImageLoader()
@@ -19,7 +19,7 @@ class ImageLoadViewController: UIViewController {
     }
     
     @IBAction func didTapReturn(_ sender: Any) {
-        let encoded = urlTextFIeld.text?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let encoded = urlTextField.text?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         guard let url = URL(string: encoded) else {
             showAlert(message: "無効なURLです")
             return
