@@ -11,7 +11,8 @@ class RepositoryLoader {
     
     func fetchRepositories(keyword: String) async throws -> SearchRepositoryResult {
         let baseURL = "https://api.github.com/search/repositories"
-        let url = URL(string: baseURL + "?q=" + keyword)!
+        let urlString = (baseURL + "?q=" + keyword).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let url = URL(string: urlString)!
         let request = URLRequest(url: url)
         
         do {

@@ -19,7 +19,8 @@ class ImageLoadViewController: UIViewController {
     }
     
     @IBAction func didTapReturn(_ sender: Any) {
-        guard let url = URL(string: urlTextFIeld.text ?? "") else {
+        let encoded = urlTextFIeld.text?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        guard let url = URL(string: encoded) else {
             showAlert(message: "無効なURLです")
             return
         }
