@@ -25,21 +25,33 @@
                                     <constraint firstAttribute="height" constant="120" id="yaZ-S0-VkY"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TND-Tt-bLL">
+                                <rect key="frame" x="67" y="122" width="259" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="didTapReturn:" destination="Y6W-OH-hqX" eventType="editingDidEndOnExit" id="XLH-Kv-kug"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="TND-Tt-bLL" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="63" id="944-J6-6Tf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TND-Tt-bLL" secondAttribute="trailing" constant="67" id="A7h-4c-rIe"/>
                             <constraint firstItem="XfJ-EB-HUu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="142" id="G66-eQ-4Ms"/>
                             <constraint firstItem="XfJ-EB-HUu" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="G8J-ae-DhD"/>
+                            <constraint firstItem="TND-Tt-bLL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="67" id="JXh-nt-2Jg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="XfJ-EB-HUu" id="WEy-Zg-5gM"/>
+                        <outlet property="urlTextFIeld" destination="TND-Tt-bLL" id="CRw-wv-hxh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="-2"/>
+            <point key="canvasLocation" x="138.1679389312977" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>

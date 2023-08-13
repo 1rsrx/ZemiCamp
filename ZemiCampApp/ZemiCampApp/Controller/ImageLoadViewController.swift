@@ -9,25 +9,31 @@ import UIKit
 
 class ImageLoadViewController: UIViewController {
     
+    @IBOutlet weak var urlTextFIeld: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     
     private let imageLoader = ImageLoader()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Task {
-            await fetchImage()
-        }
     }
     
-    private func fetchImage() async {
-        let url = URL(string: "https://3.bp.blogspot.com/-DOKddrio4pk/VA-hsHvEkcI/AAAAAAAAmTo/fe76jzUvai0/s800/smartwatch.png")!
-        do {
-            let image = try await imageLoader.fetchImage(from: url)
-        } catch {
-            if let networkError = error as? NetworkError {
-                showAlert(message: networkError.localizedDescription)
+    @IBAction func didTapReturn(_ sender: Any) {
+        guard let url = URL(string: urlTextFIeld.text ?? "") else {
+            showAlert(message: "無効なURLです")
+            return
+        }
+        
+        Task {
+            do {
+                let image = try await imageLoader.fetchImage(from: url)
+                if let image = image {
+                    imageView.image = image
+                } else {
+                    showAlert(message: "画像がnil")
+                }
+            } catch {
+                showAlert(message: error.localizedDescription)
             }
         }
     }
