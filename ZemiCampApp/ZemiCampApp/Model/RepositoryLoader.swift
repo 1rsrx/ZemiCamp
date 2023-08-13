@@ -28,7 +28,6 @@ class RepositoryLoader {
             
             do {
                 let result = try JSONDecoder().decode(SearchRepositoryResult.self, from: data)
-                print(result.total_count)
                 return result
             } catch {
                 throw NetworkError.parse
