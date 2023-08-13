@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct SearchRepositoryResult: Decodable {
+    var total_count: Int
+    var items: [Item]
+    
+    struct Item: Decodable {
+        var id: Int
+        var name: String
+        var html_url: String
+    }
+}
