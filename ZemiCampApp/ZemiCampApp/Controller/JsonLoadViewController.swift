@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class JsonLoadViewController: UIViewController {
 
@@ -74,7 +75,9 @@ extension JsonLoadViewController: UITableViewDelegate {
         
         let repository = repositories[indexPath.row]
         if let url = URL(string: repository.html_url) {
-            UIApplication.shared.open(url)
+            let safariViewController = SFSafariViewController(url: url)
+            safariViewController.dismissButtonStyle = .close
+            present(safariViewController, animated: true)
         }
     }
 }
