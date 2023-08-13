@@ -7,26 +7,22 @@
 
 import Foundation
 
-enum ApiError: Error {
+enum NetworkError: Error {
     case network
     case invalidResponse
-    case httpError(code: Int)
+    case httpError(statusCode: Int)
     case parse
-    
-    case other(message: String)
     
     var localizedDescription: String {
         switch self {
         case .network:
-            return "network error"
+            return "通信エラー"
         case .invalidResponse:
-            return "invalid response"
-        case .httpError(code: let code):
-            return "http error code: \(code)"
+            return "無効なレスポンス"
+        case .httpError(statusCode: let statusCode):
+            return "エラー ステータスコード: \(statusCode)"
         case .parse:
-            return "parse error"
-        case .other(message: let message):
-            return "other error: \(message)"
+            return "パースエラー"
         }
     }
 }

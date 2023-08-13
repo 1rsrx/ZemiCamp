@@ -9,27 +9,27 @@ import UIKit
 
 class ImageLoader {
     
-    func fetchImage(from url: URL) async -> Result<UIImage, ApiError> {
+    func fetchImage(from url: URL) async throws -> UIImage? {
         let request = URLRequest(url: url)
         
         do {
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let httpResponse = response as? HTTPURLResponse else {
-                return .failure(.invalidResponse)
+                throw NetworkError.invalidResponse
             }
             
             let statusCode = httpResponse.statusCode
             if !(200...299).contains(statusCode) {
-                return .failure(.httpError(code: statusCode))
+                throw NetworkError.httpError(statusCode: statusCode)
             }
             
-            guard let image = UIImage(data: data) else {
-                return .failure(.other(message: "failed Data to UIImage"))
+            if let image = UIImage(data: data) {
+                return image
+            } else {
+                return nil
             }
-            
-            return .success(image)
         } catch {
-            return .failure(.other(message: error.localizedDescription))
+            throw NetworkError.network
         }
     }
 }

@@ -23,15 +23,12 @@ class ImageLoadViewController: UIViewController {
     
     private func fetchImage() async {
         let url = URL(string: "https://3.bp.blogspot.com/-DOKddrio4pk/VA-hsHvEkcI/AAAAAAAAmTo/fe76jzUvai0/s800/smartwatch.png")!
-//        let url = URL(string: "https://3.bp.blogspot.com/a.png")!
-        let result = await imageLoader.fetchImage(from: url)
-        
-        switch result {
-        case .success(let image):
-            imageView.image = image
-        case .failure(let e):
-            print("error")
-            showAlert(message: e.localizedDescription)
+        do {
+            let image = try await imageLoader.fetchImage(from: url)
+        } catch {
+            if let networkError = error as? NetworkError {
+                showAlert(message: networkError.localizedDescription)
+            }
         }
     }
     
