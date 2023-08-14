@@ -77,7 +77,7 @@
 				11ED5BBA2A86681A00F59926 /* Entity */,
 				112EA5B42A861CE000D43045 /* View */,
 				112EA5B72A861D0300D43045 /* Controller */,
-				11ED5BB72A8667BB00F59926 /* Model */,
+				11ED5BB72A8667BB00F59926 /* DataStore */,
 				112EA5A72A86164100D43045 /* Assets.xcassets */,
 				112EA5A92A86164100D43045 /* LaunchScreen.storyboard */,
 				112EA5AC2A86164100D43045 /* Info.plist */,
@@ -105,13 +105,13 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		11ED5BB72A8667BB00F59926 /* Model */ = {
+		11ED5BB72A8667BB00F59926 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
 				11ED5BB82A8667C800F59926 /* ImageLoader.swift */,
 				110D4D672A88F45300895445 /* RepositoryLoader.swift */,
 			);
-			path = Model;
+			path = DataStore;
 			sourceTree = "<group>";
 		};
 		11ED5BBA2A86681A00F59926 /* Entity */ = {
