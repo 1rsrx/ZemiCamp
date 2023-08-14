@@ -12,6 +12,7 @@ class JsonLoadViewController: UIViewController {
 
     @IBOutlet weak var keywordTextField: UITextField!
     @IBOutlet weak var repositoryTableView: UITableView!
+    private let indicatorView = UIActivityIndicatorView()
     
     private let repositoryLoader = RepositoryLoader()
     
@@ -23,6 +24,14 @@ class JsonLoadViewController: UIViewController {
         repositoryTableView.delegate = self
         repositoryTableView.dataSource = self
         repositoryTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        setUpIndicator()
+    }
+    
+    private func setUpIndicator() {
+        indicatorView.center = view.center
+        indicatorView.style = .large
+        view.addSubview(indicatorView)
     }
     
     @IBAction func didTapReturn(_ sender: Any) {
@@ -32,11 +41,16 @@ class JsonLoadViewController: UIViewController {
         
         Task {
             do {
+                indicatorView.startAnimating()
+                
                 let result = try await repositoryLoader.fetchRepositories(keyword: keywordTextField.text ?? "")
                 self.repositories = result.items
                 repositoryTableView.reloadData()
+                
+                indicatorView.stopAnimating()
             } catch {
                 showAlert(message: error.localizedDescription)
+                indicatorView.stopAnimating()
             }
         }
     }

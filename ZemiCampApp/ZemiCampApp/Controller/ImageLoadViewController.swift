@@ -11,11 +11,20 @@ class ImageLoadViewController: UIViewController {
     
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    private let indicatorView = UIActivityIndicatorView()
     
     private let imageLoader = ImageLoader()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpIndicator()
+    }
+    
+    private func setUpIndicator() {
+        indicatorView.center = view.center
+        indicatorView.style = .large
+        view.addSubview(indicatorView)
     }
     
     @IBAction func didTapReturn(_ sender: Any) {
@@ -27,13 +36,18 @@ class ImageLoadViewController: UIViewController {
         
         Task {
             do {
+                indicatorView.startAnimating()
+                
                 let image = try await imageLoader.fetchImage(from: url)
                 if let image = image {
                     imageView.image = image
+                    indicatorView.stopAnimating()
                 } else {
+                    indicatorView.stopAnimating()
                     showAlert(message: "画像がnil")
                 }
             } catch {
+                indicatorView.stopAnimating()
                 showAlert(message: error.localizedDescription)
             }
         }
