@@ -45,7 +45,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="XfJ-EB-HUu" id="WEy-Zg-5gM"/>
+                        <outlet property="imageView" destination="XfJ-EB-HUu" id="F7v-wL-TFI"/>
                         <outlet property="urlTextField" destination="TND-Tt-bLL" id="tcK-iX-Wj3"/>
                     </connections>
                 </viewController>
